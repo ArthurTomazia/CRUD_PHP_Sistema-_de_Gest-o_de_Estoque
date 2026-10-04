@@ -9,7 +9,7 @@ include "../infra/connection.php";
     $data_validade=$_POST["data_validade"];
     $preco = str_replace(',','.', $_POST["preco"]);
 
-$stmt = $conn->prepare("INSERT INTO estoque(nome,categori,faixa_etaria,preco,estoque,data_validade) VALUES (?,?,?,?,?,?)");
+$stmt = $conn->prepare("INSERT INTO estoque(nome,categori,descricao,preco,estoque,data_validade) VALUES (?,?,?,?,?,?)");
 
 $stmt->bind_param("sssdi", $nome, $categori, $descricao, $preco, $estoque, $data_validade);
 
