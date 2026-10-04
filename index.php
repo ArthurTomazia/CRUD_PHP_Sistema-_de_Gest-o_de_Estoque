@@ -1,6 +1,6 @@
 <?php 
 include "infra/connection.php";
-$Estoque = mysqli_query($conn, "SELECT * FROM estoque");
+$Produto = mysqli_query($conn, "SELECT * FROM produto");
 ?>
 
 <!DOCTYPE html>
@@ -43,7 +43,7 @@ $Estoque = mysqli_query($conn, "SELECT * FROM estoque");
         <br>
         
         <label for="data_validade">Data de validade do produto:</label>
-        <input type="number" name="data_validade" required>
+        <input type="date" name="data_validade" required>
         <br>
         <button type="submit">Cadastrar produto</button>
     </form>
@@ -52,7 +52,7 @@ $Estoque = mysqli_query($conn, "SELECT * FROM estoque");
 
 <div>
 
-    <h1>Brinquedos Cadastrados</h1>
+    <h1>Produtos Cadastrados</h1>
     <table>
 
     <tr>
@@ -66,19 +66,19 @@ $Estoque = mysqli_query($conn, "SELECT * FROM estoque");
         <th>Ações</th>
     </tr>
 
-<?php while ($estoque = mysqli_fetch_assoc($Estoque)) { ?>
+<?php while ($produto = mysqli_fetch_assoc($Produto)) { ?>
 
     <tr>
-        <td><?php echo $estoque['nome'] ?></td>
-        <td><?php echo $estoque['categori'] ?></td>
-        <td><?php echo $estoque['descricao'] ?></td>
-        <td><?php echo $estoque['preco'] ?></td>
-        <td><?php echo $estoque['estoque'] ?></td>
-        <td><?php echo $estoque['data_validade'] ?></td>
-        <td><?php echo $estoque['id'] ?></td>
+        <td><?php echo $produto['nome'] ?></td>
+        <td><?php echo $produto['categori'] ?></td>
+        <td><?php echo $produto['descricao'] ?></td>
+        <td><?php echo $produto['preco'] ?></td>
+        <td><?php echo $produto['estoque'] ?></td>
+        <td><?php echo $produto['data_validade'] ?></td>
+        <td><?php echo $produto['id'] ?></td>
         <td>
-            <a href="public/editar.php?id=<?php echo $estoque['id'] ?>">Editar</a>
-            <a href="public/excluir.php?id=<?php echo $estoque['id'] ?>">Excluir</a>
+            <a href="public/editar.php?id=<?php echo $produto['id'] ?>">Editar</a>
+            <a href="public/excluir.php?id=<?php echo $produto['id'] ?>">Excluir</a>
         </td>
     </tr>
 
