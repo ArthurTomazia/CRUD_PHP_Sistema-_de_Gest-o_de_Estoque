@@ -1,0 +1,4 @@
+table, th, td {
+    border: 1px solid #000000; /* Espessura: 1px, Tipo: sólida, Cor: preta */
+    border-collapse: collapse; /* Une as bordas para não ficarem duplas */
+  }
