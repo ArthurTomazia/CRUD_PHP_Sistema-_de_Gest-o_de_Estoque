@@ -1,6 +1,6 @@
 <?php 
 
-$conn = new mysqli("localhost", "root", "", "Loja_Brinquedos");
+$conn = new mysqli("localhost", "root", "", "estoque");
 if($conn->connect_error){
     die("Erro na coneção com o banco de dados");
 };
