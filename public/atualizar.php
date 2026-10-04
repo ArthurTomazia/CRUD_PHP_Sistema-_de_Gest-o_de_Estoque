@@ -4,7 +4,7 @@ include "../infra/connection.php";
 $id=$_POST["id"];
 $nome=$_POST["nome"];
 $categori=$_POST["categori"];
-$descricao=$_POST["faixa_etaria"];
+$descricao=$_POST["descricao"];
 $estoque=$_POST["estoque"];
 $data_validade=$_POST["data_validade"];
 $preco = str_replace(',','.', $_POST["preco"]);
