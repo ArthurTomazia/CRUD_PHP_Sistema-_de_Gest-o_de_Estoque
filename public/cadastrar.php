@@ -5,13 +5,14 @@ include "../infra/connection.php";
     $nome=$_POST["nome"];
     $categori=$_POST["categori"];
     $descricao=$_POST["descricao"];
+    $preco = str_replace(',','.', $_POST["preco"]);
     $estoque=$_POST["estoque"];
     $data_validade=$_POST["data_validade"];
-    $preco = str_replace(',','.', $_POST["preco"]);
+    
 
-$stmt = $conn->prepare("INSERT INTO estoque(nome,categori,descricao,preco,estoque,data_validade) VALUES (?,?,?,?,?,?)");
+$stmt = $conn->prepare("INSERT INTO produto(nome,categori,descricao,preco,estoque,data_validade) VALUES (?,?,?,?,?,?)");
 
-$stmt->bind_param("sssdi", $nome, $categori, $descricao, $preco, $estoque, $data_validade);
+$stmt->bind_param("sssdis", $nome, $categori, $descricao, $preco, $estoque, $data_validade);
 
 $stmt->execute();
 
