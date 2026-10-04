@@ -9,9 +9,9 @@ $estoque=$_POST["estoque"];
 $data_validade=$_POST["data_validade"];
 $preco = str_replace(',','.', $_POST["preco"]);
 
-$stmt = $conn->prepare("UPDATE estoque SET nome=?,categori=?,descricao=?,preco=?,estoque=?,data_validade=? WHERE id='$id'");
+$stmt = $conn->prepare("UPDATE produto SET nome=?,categori=?,descricao=?,preco=?,estoque=?,data_validade=? WHERE id='$id'");
 
-$stmt->bind_param("sssdi", $nome, $categori, $descricao, $preco, $estoque, $data_validade);
+$stmt->bind_param("sssdis", $nome, $categori, $descricao, $preco, $estoque, $data_validade);
 
 $stmt->execute();
 
