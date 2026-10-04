@@ -10,4 +10,3 @@ CREATE TABLE produto(
     estoque int not null,
     data_validade date not null
 );
-
