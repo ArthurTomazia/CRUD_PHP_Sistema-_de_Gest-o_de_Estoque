@@ -19,12 +19,7 @@ $Estoque = mysqli_query($conn, "SELECT * FROM estoque");
     <h3>Adicionar novo produto ao Estoque</h3>
     <br>
 
-        nome
-    categori
-    descricao
-    preco
-    estoque
-    data_validade
+
 
     <form action="public/cadastrar.php" method="POST">
         <label for="nome">Nome do produto: </label>
