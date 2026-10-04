@@ -3,12 +3,12 @@ include "../infra/connection.php";
 
 $id=$_GET["id"];
 
-$stmt = $conn->prepare("SELECT * FROM estoque WHERE id=?");
+$stmt = $conn->prepare("SELECT * FROM produto WHERE id=?");
 $stmt->bind_param("i",$id);
 $stmt->execute();
 
 $resultado = $stmt->get_result();
-$brinquedo = $resultado->fetch_assoc();
+$produto = $resultado->fetch_assoc();
 
 $stmt->close();
 ?>
@@ -28,31 +28,33 @@ $stmt->close();
 
 <h3>Editar Produto</h3>
     <br>
-    <form action="public/cadastrar.php" method="POST">
+    <form action="atualizar.php" method="POST">
+        <input type="hidden" name="id" value="<?php echo $produto["id"]; ?>">
+
         <label for="nome">Nome do produto: </label>
-        <input type="text" name="nome" required>
+        <input type="text" name="nome" value="<?php echo htmlspecialchars($produto["nome"]); ?>" required>
         <br>
 
         <label for="categori">Categoria do produto: </label>
-        <input type="text" name="categori" required>
+        <input type="text" name="categori" value="<?php echo htmlspecialchars($produto["categori"]); ?>" required>
         <br>
 
         <label for="descricao">Descricao do produto: </label>
-        <input type="text" name="descricao" required>
+        <input type="text" name="descricao" value="<?php echo htmlspecialchars($produto["descricao"]); ?>" required>
         <br>
 
         <label for="preco">Preço do produto: </label>
-        <input type="number" name="preco" step="0.01" required>
+        <input type="number" name="preco" step="0.01" value="<?php echo htmlspecialchars($produto["preco"]); ?>" required>
         <br>
 
         <label for="estoque">Estoque disponivel:</label>
-        <input type="number" name="estoque" required>
+        <input type="number" name="estoque" value="<?php echo htmlspecialchars($produto["estoque"]); ?>" required>
         <br>
         
         <label for="data_validade">Data de validade do produto:</label>
-        <input type="number" name="data_validade" required>
+        <input type="date" name="data_validade" value="<?php echo htmlspecialchars($produto["data_validade"]); ?>" required>
         <br>
-        <button type="submit">Cadastrar produto</button>
+        <button type="submit">Editar produto</button>
     </form>
 
 
