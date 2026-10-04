@@ -104,7 +104,6 @@ O objetivo principal da aplicação é fornecer uma interface simples e segura p
 ├── style/
 │   └── style.css
 ├── index.php
-├── CASOS_DE_USO.md
 └── README.md
 ```
 
